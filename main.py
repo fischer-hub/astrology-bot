@@ -12,10 +12,8 @@ now = datetime.now(timezone.utc).isoformat().replace("+00:00", "Z")
 
 BLUESKY_HANDLE = os.environ["BLUESKY_HANDLE"]
 BLUESKY_APP_PASSWORD = os.environ["BLUESKY_APP_PASSWORD"]
-import subprocess
 
-
-
+selected_signs = random.sample(signs, 2)
 
 url = f"https://drive.google.com/uc?id={os.environ['MODEL_ID']}"
 model_zip = 'model.zip'
@@ -25,19 +23,20 @@ gdown.download(url, model_zip, quiet=False)
 with zipfile.ZipFile(model_zip, 'r') as zip_ref:
     zip_ref.extractall('model')
 
-bashCommand = "ls model"
-output = subprocess.check_output(['bash','-c', bashCommand])
-print(output)
 
 generate_horoscope = pipeline('text-generation', model="./model/checkpoint-500/", tokenizer='gpt2')
 
 
 while True:
     
-    horoscope_text = generate_horoscope(f"{random.choice(signs)}, ")[0]['generated_text'].lower().strip()
+    horoscope_text = generate_horoscope(f"{selected_signs[0]}, ")[0]['generated_text'].lower().strip()
 
     if horoscope_text[-1] != '.':
         horoscope_text += '.'
+
+    if '_' in horoscope_text:
+        horoscope_text = horoscope_text.replace('_', selected_signs[1], 1)
+        horoscope_text = horoscope_text.replace('_', '')
 
     if len(horoscope_text) <= 300:
         break
