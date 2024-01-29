@@ -1,5 +1,6 @@
-import json, random, sys, requests, os
+import json, random, sys, requests, os, zipfile
 from transformers import pipeline
+import gdown
 
 from datetime import datetime, timezone
 
@@ -12,6 +13,13 @@ now = datetime.now(timezone.utc).isoformat().replace("+00:00", "Z")
 BLUESKY_HANDLE = os.environ["BLUESKY_HANDLE"]
 BLUESKY_APP_PASSWORD = os.environ["BLUESKY_APP_PASSWORD"]
 
+
+url = f"https://drive.google.com/uc?{os.environ['MODEL_ID']}"
+model_zip = 'model.zip'
+gdown.download(url, model_zip, quiet=False)
+
+with zipfile.ZipFile(model_zip, 'r') as zip_ref:
+    zip_ref.extractall('model')
 
 generate_horoscope = pipeline('text-generation', model="./model/", tokenizer='gpt2')
 
