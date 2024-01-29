@@ -59,7 +59,7 @@ print(session["accessJwt"])
 # Required fields that each post must include
 post = {
     "$type": "app.bsky.feed.post",
-    "text": "Hello World!",
+    "text": horoscope_text,
     "createdAt": now,
     "langs": [ "th", "en-US" ]
 }
