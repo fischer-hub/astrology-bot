@@ -34,7 +34,7 @@ generate_horoscope = pipeline('text-generation', model="./model/checkpoint-500/"
 
 while True:
     
-    horoscope_text = generate_horoscope(f"{random.choice(signs)}, ")[0]['generated_text'].lower() 
+    horoscope_text = generate_horoscope(f"{random.choice(signs)}, ")[0]['generated_text'].lower().strip()
 
     if horoscope_text[-1] != '.':
         horoscope_text += '.'
@@ -47,7 +47,6 @@ while True:
 
 print(horoscope_text)
 
-exit()
 
 resp = requests.post(
     "https://bsky.social/xrpc/com.atproto.server.createSession",
