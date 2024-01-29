@@ -31,7 +31,7 @@ while True:
     
     horoscope_text = generate_horoscope(f"{selected_signs[0]},")[0]['generated_text'].lower().strip()
 
-    if horoscope_text[-1] != '.':
+    if horoscope_text[-1] != '.' and horoscope_text[-1] != '!':
         horoscope_text += '.'
 
     if '_' in horoscope_text:
