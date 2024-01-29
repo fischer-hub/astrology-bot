@@ -20,7 +20,10 @@ import subprocess
 url = f"https://drive.google.com/uc?{os.environ['MODEL_ID']}"
 model_zip = 'model.zip'
 gdown.download(url, model_zip, quiet=False)
-subprocess.Popen("file model.zip")
+
+bashCommand = "file model.zip"
+output = subprocess.check_output(['bash','-c', bashCommand])
+print(output)
 
 with zipfile.ZipFile(model_zip, 'r') as zip_ref:
     zip_ref.extractall('model')
