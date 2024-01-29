@@ -3,6 +3,7 @@ name: run astrology bot
 on:
   schedule:
     - cron: '22 * * * *' # At 00:00 on Monday
+  workflow_dispatch:
 
 jobs:
   build:
