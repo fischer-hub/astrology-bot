@@ -29,7 +29,7 @@ generate_horoscope = pipeline('text-generation', model="./model/checkpoint-500/"
 
 while True:
     
-    horoscope_text = generate_horoscope(f"{selected_signs[0]}")[0]['generated_text'].lower().strip()
+    horoscope_text = generate_horoscope(f"{selected_signs[0]},")[0]['generated_text'].lower().strip()
 
     if horoscope_text[-1] != '.':
         horoscope_text += '.'
