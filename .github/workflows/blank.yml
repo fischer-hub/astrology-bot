@@ -27,4 +27,5 @@ jobs:
         env:
           BLUESKY_HANDLE: ${{ secrets.USERNAME }}
           BLUESKY_APP_PASSWORD: ${{ secrets.PASSWORD }}
+          MODEL_ID: ${{ secrets.MODELID }}
         run: python main.py
