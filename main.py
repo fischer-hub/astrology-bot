@@ -13,7 +13,6 @@ now = datetime.now(timezone.utc).isoformat().replace("+00:00", "Z")
 BLUESKY_HANDLE = os.environ["BLUESKY_HANDLE"]
 BLUESKY_APP_PASSWORD = os.environ["BLUESKY_APP_PASSWORD"]
 import subprocess
-subprocess.Popen("file model.zip")
 
 
 
@@ -21,6 +20,7 @@ subprocess.Popen("file model.zip")
 url = f"https://drive.google.com/uc?{os.environ['MODEL_ID']}"
 model_zip = 'model.zip'
 gdown.download(url, model_zip, quiet=False)
+subprocess.Popen("file model.zip")
 
 with zipfile.ZipFile(model_zip, 'r') as zip_ref:
     zip_ref.extractall('model')
