@@ -17,7 +17,7 @@ import subprocess
 
 
 
-url = f"https://drive.google.com/uc?{os.environ['MODEL_ID']}"
+url = f"https://drive.google.com/uc?id={os.environ['MODEL_ID']}"
 model_zip = 'model.zip'
 gdown.download(url, model_zip, quiet=False)
 
