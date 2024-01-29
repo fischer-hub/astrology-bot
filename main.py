@@ -29,7 +29,7 @@ bashCommand = "ls model"
 output = subprocess.check_output(['bash','-c', bashCommand])
 print(output)
 
-generate_horoscope = pipeline('text-generation', model="./model/", tokenizer='gpt2')
+generate_horoscope = pipeline('text-generation', model="./model/checkpoint-500/", tokenizer='gpt2')
 
 
 while True:
