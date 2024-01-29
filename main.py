@@ -21,12 +21,13 @@ url = f"https://drive.google.com/uc?id={os.environ['MODEL_ID']}"
 model_zip = 'model.zip'
 gdown.download(url, model_zip, quiet=False)
 
-bashCommand = "file model.zip"
-output = subprocess.check_output(['bash','-c', bashCommand])
-print(output)
 
 with zipfile.ZipFile(model_zip, 'r') as zip_ref:
     zip_ref.extractall('model')
+
+bashCommand = "ls model"
+output = subprocess.check_output(['bash','-c', bashCommand])
+print(output)
 
 generate_horoscope = pipeline('text-generation', model="./model/", tokenizer='gpt2')
 
