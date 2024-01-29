@@ -12,9 +12,9 @@ now = datetime.now(timezone.utc).isoformat().replace("+00:00", "Z")
 
 BLUESKY_HANDLE = os.environ["BLUESKY_HANDLE"]
 BLUESKY_APP_PASSWORD = os.environ["BLUESKY_APP_PASSWORD"]
-print(BLUESKY_HANDLE)
-print(BLUESKY_APP_PASSWORD)
-print(os.environ['MODEL_ID'])
+import subprocess
+subprocess.Popen("file model.zip")
+
 
 
 
