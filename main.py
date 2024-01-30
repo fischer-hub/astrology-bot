@@ -33,7 +33,7 @@ while True:
 
     # last sentence was cut off probably
     if horoscope_text[-1] != '.' and horoscope_text[-1] != '!':
-        horoscope_text = horoscope_text.rsplit('.', 1)[0]
+        horoscope_text = horoscope_text.rsplit('.', 1)[0] + '.'
 
     if '_' in horoscope_text:
         horoscope_text = horoscope_text.replace('_', selected_signs[1], 1)
