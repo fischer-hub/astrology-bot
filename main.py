@@ -16,7 +16,7 @@ BLUESKY_APP_PASSWORD = os.environ["BLUESKY_APP_PASSWORD"]
 selected_signs = random.sample(signs, 2)
 
 url = f"https://drive.google.com/uc?id={os.environ['MODEL_ID']}"
-model_zip = 'model.zip'
+model_zip = 'model_355.zip'
 gdown.download(url, model_zip, quiet=False)
 
 
@@ -24,7 +24,7 @@ with zipfile.ZipFile(model_zip, 'r') as zip_ref:
     zip_ref.extractall('model')
 
 
-generate_horoscope = pipeline('text-generation', model="./model/checkpoint-500/", tokenizer='gpt2')
+generate_horoscope = pipeline('text-generation', model="./model/", tokenizer='gpt2')
 
 
 while True:
