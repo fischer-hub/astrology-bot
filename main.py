@@ -1,4 +1,4 @@
-import json, random, sys, requests, os, zipfile
+import json, random, sys, requests, os, zipfile, glob
 from transformers import pipeline
 import gdown
 
@@ -23,9 +23,9 @@ gdown.download(url, model_zip, quiet=False)
 with zipfile.ZipFile(model_zip, 'r') as zip_ref:
     zip_ref.extractall('model')
 
-import subprocess
-print(subprocess.run('ls;ls model', shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True))
-generate_horoscope = pipeline('text-generation', model="./model/", tokenizer='gpt2')
+#import subprocess
+#print(subprocess.run('ls;ls model', shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True))
+generate_horoscope = pipeline('text-generation', model=glob.glob('./model/model*'), tokenizer='gpt2')
 
 
 while True:
