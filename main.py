@@ -1,6 +1,6 @@
 import json, random, sys, requests, os, zipfile, glob
 from transformers import pipeline
-import gdown
+#import gdown
 
 from datetime import datetime, timezone
 
