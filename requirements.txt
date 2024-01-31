@@ -1,4 +1,4 @@
 requests
 transformers
--i https://download.pytorch.org/whl/cpu
+--extra-index-url https://download.pytorch.org/whl/cpu
 torch
