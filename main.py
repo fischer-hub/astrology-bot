@@ -25,7 +25,7 @@ with zipfile.ZipFile(model_zip, 'r') as zip_ref:
 
 #import subprocess
 #print(subprocess.run('ls;ls model', shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True))
-generate_horoscope = pipeline('text-generation', model=glob.glob('./model/model*'), tokenizer='gpt2')
+generate_horoscope = pipeline('text-generation', model=glob.glob('./model/model*')[0], tokenizer='gpt2')
 
 
 while True:
