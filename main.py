@@ -17,11 +17,12 @@ selected_signs = random.sample(signs, 2)
 
 url = f"https://drive.google.com/uc?id={os.environ['MODEL_ID']}"
 model_zip = 'model_355.zip'
-#gdown.download(url, model_zip, quiet=False)
 
-
-#with zipfile.ZipFile(model_zip, 'r') as zip_ref:
-#    zip_ref.extractall('model')
+if not glob.glob('./model/model*'):
+    gdown.download(url, model_zip, quiet=False)
+    
+    with zipfile.ZipFile(model_zip, 'r') as zip_ref:
+        zip_ref.extractall('model')
 
 #import subprocess
 #print(subprocess.run('ls;ls model', shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True))
