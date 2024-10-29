@@ -2,9 +2,13 @@ import json, random, sys, requests, os, zipfile, glob
 from transformers import pipeline
 import gdown
 
-from datetime import datetime, timezone
+from datetime import datetime, timezone, random
 
 signs = ['Aries', 'Taurus', 'Gemini', 'Cancer', 'Leo', 'Virgo', 'Libra', 'Scorpio', 'Sagittarius', 'Capricorn', 'Aquarius', 'Pisces']
+
+SEED = datetime.now(timezone.utc).isoformat().split('T')[0].replace('-', '')
+random.seed(SEED)
+random.shuffle(signs)
 
 # Fetch the current time
 # Using a trailing "Z" is preferred over the "+00:00" format
@@ -13,7 +17,10 @@ now = datetime.now(timezone.utc).isoformat().replace("+00:00", "Z")
 BLUESKY_HANDLE = os.environ["BLUESKY_HANDLE"]
 BLUESKY_APP_PASSWORD = os.environ["BLUESKY_APP_PASSWORD"]
 
-selected_signs = random.sample(signs, 2)
+sign_index1 = int(datetime.now(timezone.utc).isoformat().split('T')[1].split(':')[0]) % 12
+sign_index2 = (int(datetime.now(timezone.utc).isoformat().split('T')[1].split(':')[0])+1) % 12
+sign1 = signs[sign_index1]
+sign2 = signs[sign_index2]
 
 url = f"https://drive.google.com/uc?id={os.environ['MODEL_ID']}"
 model_zip = 'model_355.zip'
@@ -32,14 +39,14 @@ generate_horoscope = pipeline('text-generation', model=glob.glob('./model/model*
 
 while True:
     
-    horoscope_text = generate_horoscope(f"{selected_signs[0]},")[0]['generated_text'].lower().strip()
+    horoscope_text = generate_horoscope(f"{sign1},")[0]['generated_text'].lower().strip()
 
     # last sentence was cut off probably
     if horoscope_text[-1] != '.' and horoscope_text[-1] != '!':
         horoscope_text = horoscope_text.rsplit('.', 1)[0] + '.'
 
     if '_' in horoscope_text:
-        horoscope_text = horoscope_text.replace('_', selected_signs[1], 1)
+        horoscope_text = horoscope_text.replace('_', sign2, 1)
         horoscope_text = horoscope_text.replace('_', '')
 
     if len(horoscope_text) <= 300:
