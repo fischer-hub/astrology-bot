@@ -1,8 +1,8 @@
 import json, random, sys, requests, os, zipfile, glob
 from transformers import pipeline
-import gdown
+import gdown, random
 
-from datetime import datetime, timezone, random
+from datetime import datetime, timezone
 
 signs = ['Aries', 'Taurus', 'Gemini', 'Cancer', 'Leo', 'Virgo', 'Libra', 'Scorpio', 'Sagittarius', 'Capricorn', 'Aquarius', 'Pisces']
 
