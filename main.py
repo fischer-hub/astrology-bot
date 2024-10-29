@@ -7,6 +7,7 @@ from datetime import datetime, timezone
 signs = ['Aries', 'Taurus', 'Gemini', 'Cancer', 'Leo', 'Virgo', 'Libra', 'Scorpio', 'Sagittarius', 'Capricorn', 'Aquarius', 'Pisces']
 
 SEED = datetime.now(timezone.utc).isoformat().split('T')[0].replace('-', '')
+print(f"Seed to shuffle sign list is: {SEED}.")
 random.seed(SEED)
 random.shuffle(signs)
 
@@ -21,6 +22,7 @@ sign_index1 = int(datetime.now(timezone.utc).isoformat().split('T')[1].split(':'
 sign_index2 = (int(datetime.now(timezone.utc).isoformat().split('T')[1].split(':')[0])+1) % 12
 sign1 = signs[sign_index1]
 sign2 = signs[sign_index2]
+print(f"Selected signs {sign1}, {sign2}.")
 
 url = f"https://drive.google.com/uc?id={os.environ['MODEL_ID']}"
 model_zip = 'model_355.zip'

@@ -12,7 +12,7 @@ So I grabbed my (limited) knowledge of coding bots and my even more limited know
 
 The bot is based on the pre-trained gpt2 124M parameter language model that is linked below and was finetuned using the `huggingface framework`. This means it was fed a few thousand horoscopes (thanks google colabs for the free GPU) that someone scraped from the New York Times horoscope section 7 years ago and that I was lucky to find and reuse for this project. The original dataset can also be found in the Credits section.
 
-The resulting fine-tuned model is then used to complete a horoscope text that starts with one of the zodiac signs that will be drawn randomly. Then the bluesky social API is used to post the text to the bots account. Github actions is then set to repeat this every hour.
+The resulting fine-tuned model is then used to complete a horoscope text that starts with one of the zodiac signs that will be drawn randomly without replacement every 12 hours (thats actually not what is happening for secret reasons we shuffle a list of 12 zodiac signs based on a seed that is all digits of the current date in isoformat without colons and draw the i-th element fromt this list, where i  is the digit of the current hour modulo 12 (dont even ask me)). Then the bluesky social API is used to post the text to the bots account. Github actions is then set to repeat this every hour.
 
 Right now the model files are hosted outside of the github repo for reasons I don't want to talk about because they made me lose my mind during development, let's just say I learned my lesson and will not try to host large non-text files on github or github lfs anytime soon again.
 
