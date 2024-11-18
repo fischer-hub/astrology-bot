@@ -2,7 +2,7 @@ name: run astrology bot
 
 on:
   schedule:
-    - cron: '22 * * * *' # hourly at the 22th minute
+    - cron: '33 * * * *' # hourly at the 22th minute
   workflow_dispatch:
 
 jobs:
