@@ -62,7 +62,7 @@ def check_and_answer_mentions(session):
         )
         print(resp.json())
         # set notification to seen
-        /xrpc/app.bsky.notification.updateSeen
+        #/xrpc/app.bsky.notification.updateSeen
     resp.raise_for_status()
 
     #/xrpc/app.bsky.notification.listNotifications
