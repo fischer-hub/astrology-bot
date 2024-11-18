@@ -1,7 +1,7 @@
 import json, random, sys, requests, os, zipfile, glob
 from transformers import pipeline
 import gdown, random
-
+from mention import check_and_answer_mentions
 from datetime import datetime, timezone
 
 signs = ['Aries', 'Taurus', 'Gemini', 'Cancer', 'Leo', 'Virgo', 'Libra', 'Scorpio', 'Sagittarius', 'Capricorn', 'Aquarius', 'Pisces']
@@ -66,7 +66,6 @@ resp = requests.post(
 )
 resp.raise_for_status()
 session = resp.json()
-print(session["accessJwt"])
 
 # Required fields that each post must include
 post = {
@@ -87,3 +86,5 @@ resp = requests.post(
 )
 print(json.dumps(resp.json(), indent=2))
 resp.raise_for_status()
+
+#check_and_answer_mentions(session)
