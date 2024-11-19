@@ -2,7 +2,6 @@ import requests, json, random
 from datetime import datetime, timezone
 from dicts import zodiac_last_day, zodiac_compatibility, good_compatibility, medium_compatibility, bad_compatibility
 
-now = datetime.now(timezone.utc).isoformat().replace("+00:00", "Z")
 
 def check_and_answer_mentions(session):
 
@@ -105,7 +104,6 @@ def check_and_answer_mentions(session):
             reply_text += ' ' + just_words
             
         reply_text = reply_text.lower()
-        now = datetime.now(timezone.utc).isoformat().replace("+00:00", "Z")
         resp = requests.post("https://bsky.social/xrpc/com.atproto.repo.createRecord",
             headers = request_header,
             json={
@@ -117,7 +115,7 @@ def check_and_answer_mentions(session):
                         "parent": { 'cid': mention['cid'], 'uri': mention['uri'] },
                         "root"  : mention['record']['reply']['root']
                     },
-                    "createdAt": now
+                    "createdAt": datetime.now(timezone.utc).isoformat().replace("+00:00", "Z")
                 }
                 }
         )
@@ -127,7 +125,7 @@ def check_and_answer_mentions(session):
     # mark notifs as seen
     resp = requests.post("https://bsky.social/xrpc/app.bsky.notification.updateSeen",
         headers = request_header,
-        json={'seenAt': now})
+        json={'seenAt': datetime.now(timezone.utc).isoformat().replace("+00:00", "Z")})
 
     print(resp.status_code)
     resp.raise_for_status()
