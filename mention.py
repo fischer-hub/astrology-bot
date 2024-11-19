@@ -113,7 +113,7 @@ def check_and_answer_mentions(session):
                         "parent": { 'cid': mention['cid'], 'uri': mention['uri'] },
                         "root"  : mention['record']['reply']['root']
                     },
-                    "createdAt": "1312-12-11T13:12:00.000Z"
+                    "createdAt": now
                 }
                 }
         )
@@ -123,7 +123,7 @@ def check_and_answer_mentions(session):
     # mark notifs as seen
     resp = requests.post("https://bsky.social/xrpc/app.bsky.notification.updateSeen",
         headers = request_header,
-        json={'seenAt': datetime.now(timezone.utc).isoformat().replace("+00:00", "Z")})
-        
+        json={'seenAt': now})
+
     print(resp.status_code)
     resp.raise_for_status()
