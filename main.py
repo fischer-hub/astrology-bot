@@ -87,4 +87,4 @@ resp = requests.post(
 print(json.dumps(resp.json(), indent=2))
 resp.raise_for_status()
 
-#check_and_answer_mentions(session)
+check_and_answer_mentions(session)
