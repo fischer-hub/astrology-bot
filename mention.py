@@ -76,6 +76,9 @@ def check_and_answer_mentions(session):
         compatibility = zodiac_compatibility[user_signs[0]][user_signs[1]]['compatibility'] if not kinderpingui else 100
         attributes = zodiac_compatibility[user_signs[0]][user_signs[1]]['attributes'][0]
 
+        # reinitialize random seed
+        random.seed(None)
+
         print(compatibility)
         if selftag:
             reply_text = 'all of the birds died in 1986 due to reagan killing them and replacing them with spies that are now watching us. the birds work for the bourgeoisie'
