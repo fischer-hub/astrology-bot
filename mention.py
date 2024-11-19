@@ -102,6 +102,7 @@ def check_and_answer_mentions(session):
             reply_text += ' ' + just_words
             
         reply_text = reply_text.lower()
+        now = datetime.now(timezone.utc).isoformat().replace("+00:00", "Z")
         resp = requests.post("https://bsky.social/xrpc/com.atproto.repo.createRecord",
             headers = request_header,
             json={
