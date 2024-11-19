@@ -120,6 +120,7 @@ def check_and_answer_mentions(session):
                 }
         )
         print(f"posting reply to user {mention_handle}\n\n {resp.json()}")
+        print(reply_text)
         
 
     # mark notifs as seen
