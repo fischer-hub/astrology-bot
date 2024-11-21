@@ -51,7 +51,7 @@ def repost_fus(session):
                 "uri": post['uri'],
                 "cid": post['cid']
             },
-            "createdAt": now
+            "createdAt": datetime.now(timezone.utc).isoformat().replace("+00:00", "Z")
         }
 
         resp = requests.post("https://bsky.social/xrpc/com.atproto.repo.createRecord",
