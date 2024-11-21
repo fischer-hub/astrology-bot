@@ -108,7 +108,7 @@ else:
 
 print('checking fusverbot')
 resp = requests.post("https://bsky.social/xrpc/com.atproto.server.createSession",
-                     json={"identifier": 'mthatcherbot.bsky.social', "password": BLUESKY_APP_PASSWORD})
+                     json={"identifier": 'fusverbot.bsky.social', "password": BLUESKY_APP_PASSWORD})
 
 resp.raise_for_status()
 session = resp.json()
