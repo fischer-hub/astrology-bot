@@ -5,7 +5,9 @@ from datetime import datetime, timezone, timedelta
 def repost_fus(session):
 
     now = datetime.now(timezone.utc).isoformat().replace("+00:00", "Z")
-    one_hour_ago = (datetime.now(timezone.utc) - timedelta(hours=1)).isoformat().replace("+00:00", "Z")
+    date_lst = (datetime.now(timezone.utc) - timedelta(hours=1)).isoformat().replace("+00:00", "Z").split(':')
+    date_lst[1] = ':33:'
+    one_hour_ago = ''.join(date_lst)
 
     request_header = {"Authorization": "Bearer " + session["accessJwt"]}
 
