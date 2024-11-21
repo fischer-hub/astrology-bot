@@ -8,9 +8,9 @@ def check_on_maggie(session):
     skeets = ["Still dead", "Rotting in hell", "Having her grave pissed on, cause shes dead",
             "as dead as you can be", "will never see any daylight again", 'margaret thatcher the cum snatcher mhh still rotting',
             "as dead as pokemon go", "Dead dead dead", 'consistently unliving', 'not snatching any cum anymore, cause shes dead',
-            "Urine speaks louder than words, so piss on her grave when you get the chance", 
+            "Urine speaks louder than words, so piss on her grave when you get the chance to", 
             "Holding hands with Ronald Reagan in the deepest Level of hell", 'resting in everything but peace, hopefully',
-            "Dead or Alive? No she's dead", 'only thing she’s cutting are her ties with the living world - permanently',
+            "Dead or Alive? No she's dead", 'cutting taxes? no, cutting ties with the living world - permanently',
             'five feet under with her stiff upper lip peaking out', 'currently taking a permanent nap at the mortlake crematorium',
             'dismantling the walfare state, in hell', 'destroying unions in the afterlife',
             'trying to bulldoze her way out of death - unsuccessfully', 'currently privatizing her way into the abyss',
@@ -21,7 +21,7 @@ def check_on_maggie(session):
 
     post = {
         "$type": "app.bsky.feed.post",
-        "text": random.choice(skeets).lower(),
+        "text": 'cutting taxes? no, cutting ties with the living world - permanently',#random.choice(skeets).lower(),
         "createdAt": now,
         "langs": [ "th", "en-US" ]
     }
