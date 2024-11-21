@@ -89,12 +89,13 @@ print(json.dumps(resp.json(), indent=2))
 resp.raise_for_status()
 
 check_and_answer_mentions(session)
+if True:#'13' in str(datetime.now(timezone.utc)).split(' ')[1].split(':')[0]:
+    print('time to check on maggie')
+    resp = requests.post(
+        "https://bsky.social/xrpc/com.atproto.server.createSession",
+        json={"identifier": 'mthatcherbot.bsky.social', "password": BLUESKY_APP_PASSWORD},
+    )
+    resp.raise_for_status()
+    session = resp.json()
 
-resp = requests.post(
-    "https://bsky.social/xrpc/com.atproto.server.createSession",
-    json={"identifier": 'mthatcherbot.bsky.social', "password": BLUESKY_APP_PASSWORD},
-)
-resp.raise_for_status()
-session = resp.json()
-
-check_on_maggie(session)
+    check_on_maggie(session)
