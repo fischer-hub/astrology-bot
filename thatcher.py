@@ -1,5 +1,5 @@
 from datetime import datetime, timezone
-import random, requests
+import random, requests, json
 
 def check_on_maggie(session):
     
