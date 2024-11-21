@@ -1,7 +1,9 @@
 from datetime import datetime, timezone
-import random
+import random, requests
 
 def check_on_maggie(session):
+    
+    random.seed(None)
 
     skeets = ["Still dead", "Rotting in hell", "Having her grave pissed on, cause shes dead",
             "as dead as you can be", "will never see any daylight again", 'margaret thatcher the cum snatcher mhh still rotting',
