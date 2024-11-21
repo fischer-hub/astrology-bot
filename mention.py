@@ -84,7 +84,7 @@ def check_and_answer_mentions(session):
         print(compatibility)
         if maggie:
             reply_text = 'may she rot in hell, snatching all of the cum'
-        if selftag:
+        elif selftag:
             reply_text = 'all of the birds died in 1986 due to reagan killing them and replacing them with spies that are now watching us. the birds work for the bourgeoisie'
         else:
             if compatibility >= 66:
