@@ -46,6 +46,9 @@ def check_and_answer_mentions(session):
         else:
             kinderpingui = False
             
+        if 'mthatcherbot' in parent_profile['handle'] or 'mthatcherbot' in mention_profile['handle']:
+            print('MAGGIE')
+            maggie = True
         if 'hourlyhoroscope' in parent_profile['handle'] or 'hourlyhoroscope' in mention_profile['handle']:
             print('bot got tagged')
             selftag = True
@@ -79,6 +82,8 @@ def check_and_answer_mentions(session):
         random.seed(None)
 
         print(compatibility)
+        if maggie:
+            reply_text = 'may she rot in hell, snatching all of the cum'
         if selftag:
             reply_text = 'all of the birds died in 1986 due to reagan killing them and replacing them with spies that are now watching us. the birds work for the bourgeoisie'
         else:
