@@ -4,6 +4,7 @@ import gdown, random
 from mention import check_and_answer_mentions
 from datetime import datetime, timezone
 from thatcher import check_on_maggie
+from fus import repost_fus
 
 signs = ['Aries', 'Taurus', 'Gemini', 'Cancer', 'Leo', 'Virgo', 'Libra', 'Scorpio', 'Sagittarius', 'Capricorn', 'Aquarius', 'Pisces']
 
@@ -103,3 +104,13 @@ if '9' in str(datetime.now(timezone.utc)).split(' ')[1].split(':')[0] or '19' in
 
 else:
     print('not now maggie..')
+
+
+print('checking fusverbot')
+resp = requests.post("https://bsky.social/xrpc/com.atproto.server.createSession",
+                     json={"identifier": 'mthatcherbot.bsky.social', "password": BLUESKY_APP_PASSWORD})
+
+resp.raise_for_status()
+session = resp.json()
+
+repost_fus(session)
