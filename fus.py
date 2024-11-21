@@ -38,7 +38,8 @@ def repost_fus(session):
     for post in posts:
 
         if post['uri'] not in unique_str and not 'fusverbot' in post['author']['handle']:
-            unique_posts.append(post)
+            if 'fuß' in post['record']['text'] or 'Fuß' in post['record']['text']:
+                unique_posts.append(post)
 
 
     print(len(unique_posts))
