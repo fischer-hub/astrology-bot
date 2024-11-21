@@ -3,6 +3,7 @@ from transformers import pipeline
 import gdown, random
 from mention import check_and_answer_mentions
 from datetime import datetime, timezone
+from thatcher import check_on_maggie
 
 signs = ['Aries', 'Taurus', 'Gemini', 'Cancer', 'Leo', 'Virgo', 'Libra', 'Scorpio', 'Sagittarius', 'Capricorn', 'Aquarius', 'Pisces']
 
@@ -88,3 +89,12 @@ print(json.dumps(resp.json(), indent=2))
 resp.raise_for_status()
 
 check_and_answer_mentions(session)
+
+resp = requests.post(
+    "https://bsky.social/xrpc/com.atproto.server.createSession",
+    json={"identifier": 'mthatcherbot.bsky.social', "password": BLUESKY_APP_PASSWORD},
+)
+resp.raise_for_status()
+session = resp.json()
+
+check_on_maggie(session)
