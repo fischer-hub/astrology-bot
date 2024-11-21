@@ -22,7 +22,8 @@ def check_on_maggie(session):
             'dead, deader, deadest, margaret thatcher', 'doing penance for all of the miners lives she destroyed',
             'enjoying the free market of hell', 'trickling down to hell', 'shit talking about dead people is never okay, unless its margaret thatcher',
             'Eeny, meeny, miny, moe, maggies still 5 ft down below', 'rotating in her grave like a rotisserie chicken', 'discussing politics with mother teresa and ronald raegan',
-            'at least she will never have to buy sunscreen again', 'taking golden showers in hellfire']
+            'at least she will never have to buy sunscreen again', 'taking golden showers in hellfire', 'expired', 'perished', 'gone', 'slain', 'she is no more',
+            'chilling with churchill', 'forever asleep', 'buried', 'bereft of life', 'still pushing up the daisies']
 
     now = datetime.now(timezone.utc).isoformat().replace("+00:00", "Z")
 
