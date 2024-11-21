@@ -22,12 +22,12 @@ def repost_fus(session):
 
     posts_fusz = requests.get('https://bsky.social/xrpc/app.bsky.feed.searchPosts',
                 headers = request_header,
-                params={"q": "fuß", 'since': one_hour_ago}
+                params={"q": '"fuß"', 'since': one_hour_ago}
                 ).json()
 
     posts_Fusz = requests.get('https://bsky.social/xrpc/app.bsky.feed.searchPosts',
                 headers = request_header,
-                params={"q": "Fuß", 'since': one_hour_ago}
+                params={"q": '"Fuß"', 'since': one_hour_ago}
                 ).json()
 
     posts = posts_fusz["posts"] + posts_Fusz["posts"] #  + posts_fuss["posts"] + posts_fus["posts"]
