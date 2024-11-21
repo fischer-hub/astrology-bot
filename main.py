@@ -90,7 +90,7 @@ resp.raise_for_status()
 
 check_and_answer_mentions(session)
 
-if '15' in str(datetime.now(timezone.utc)).split(' ')[1].split(':')[0] or '19' in str(datetime.now(timezone.utc)).split(' ')[1].split(':')[0]:
+if True or '9' in str(datetime.now(timezone.utc)).split(' ')[1].split(':')[0] or '19' in str(datetime.now(timezone.utc)).split(' ')[1].split(':')[0]:
     print('time to check on maggie')
     resp = requests.post(
         "https://bsky.social/xrpc/com.atproto.server.createSession",
@@ -100,3 +100,6 @@ if '15' in str(datetime.now(timezone.utc)).split(' ')[1].split(':')[0] or '19' i
     session = resp.json()
 
     check_on_maggie(session)
+
+else:
+    print('not now maggie..')

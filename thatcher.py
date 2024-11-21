@@ -16,7 +16,10 @@ def check_on_maggie(session):
             'trying to bulldoze her way out of death - unsuccessfully', 'currently privatizing her way into the abyss',
             'still freezing hell with her cold heart', 'dead', 'not living', 'very much unalive',
             'thank god shes dead', 'today is a good day, she still hasnt come back', 'being eaten by worms in her grave',
-            ' A spectre is haunting Europe - the spectre of maggei thatcher, because shes still dead', '']
+            'A spectre is haunting Europe - the spectre of maggei thatcher, because shes still dead', 
+            'if i had a dime for every time maggie came back from the dead, i would have 0 dimes', 'wiping the floors of hell with her face',
+            'the iron lady is melting - in the eternal flames of hell', 'roses are red, violets are blue and margaret thatcher is still dead',
+            '']
 
     now = datetime.now(timezone.utc).isoformat().replace("+00:00", "Z")
 
