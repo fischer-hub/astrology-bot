@@ -19,13 +19,13 @@ def check_on_maggie(session):
             'A spectre is haunting Europe - the spectre of maggei thatcher, because shes still dead', 
             'if i had a dime for every time maggie came back from the dead, i would have 0 dimes', 'wiping the floors of hell with her face',
             'the iron lady is melting - in the eternal flames of hell', 'roses are red, violets are blue and margaret thatcher is still dead',
-            '']
+            'dead, deader, deadest, margaret thatcher', ]
 
     now = datetime.now(timezone.utc).isoformat().replace("+00:00", "Z")
 
     post = {
         "$type": "app.bsky.feed.post",
-        "text": 'cutting taxes? no, cutting ties with the living world - permanently',#random.choice(skeets).lower(),
+        "text": random.choice(skeets).lower(),
         "createdAt": now,
         "langs": [ "th", "en-US" ]
     }
