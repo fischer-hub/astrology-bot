@@ -113,4 +113,4 @@ resp = requests.post("https://bsky.social/xrpc/com.atproto.server.createSession"
 resp.raise_for_status()
 session = resp.json()
 
-repost_fus(session)
+#repost_fus(session)
